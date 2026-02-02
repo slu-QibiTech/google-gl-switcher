@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Google Search Region Switcher (gl)",
+  "version": "1.0.0",
+  "description": "Click the icon to reopen the current Google Search results with a different &gl= region.",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["*://www.google.*/*", "*://google.*/*"],
+  "action": {
+    "default_title": "Switch Google Search region (gl)"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "options_page": "options.html"
+}

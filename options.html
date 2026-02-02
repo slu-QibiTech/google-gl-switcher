@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Google Region Switcher Options</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 16px; max-width: 520px; }
+      label { display: block; margin-bottom: 8px; font-weight: 600; }
+      input { padding: 8px; width: 160px; }
+      button { margin-top: 12px; padding: 8px 12px; }
+      .hint { margin-top: 10px; color: #555; font-size: 13px; }
+      .status { margin-top: 10px; font-size: 13px; }
+      code { background: #f3f3f3; padding: 2px 6px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <h2>Default <code>gl</code> region</h2>
+    <label for="gl">Country/region code (e.g., us, jp, de, fr):</label>
+    <input id="gl" placeholder="us" />
+    <div class="hint">
+      This sets the <code>&gl=</code> parameter. Click the extension icon on a Google results page to apply it.
+    </div>
+    <button id="save">Save</button>
+    <div class="status" id="status"></div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
