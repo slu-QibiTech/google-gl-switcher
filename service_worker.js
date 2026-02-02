@@ -1,4 +1,4 @@
-const DEFAULT_GL = "us"; // fallback if user hasn't set anything
+const DEFAULT_GL = "us";
 
 chrome.action.onClicked.addListener(async (tab) => {
   try {
@@ -6,28 +6,28 @@ chrome.action.onClicked.addListener(async (tab) => {
 
     const url = new URL(tab.url);
 
-    // Only operate on Google Search result pages: /search
-    // (You can relax this if you want it to apply to other Google pages.)
+    // Only apply on Google Search result pages
     const isGoogleDomain = /(^|\.)google\./i.test(url.hostname);
     const isSearchPath = url.pathname === "/search";
 
     if (!isGoogleDomain || !isSearchPath) {
-      // Not a Google Search results page; do nothing.
       return;
     }
 
+    // Load saved region code
     const { gl } = await chrome.storage.sync.get(["gl"]);
     const targetGl = (gl || DEFAULT_GL).trim().toLowerCase();
 
-    // Set or replace gl
+    // Set or replace gl param
     url.searchParams.set("gl", targetGl);
 
-    // Optional: if you ALSO want interface language, you could do:
-    // url.searchParams.set("hl", "ja");
+    // Open in a new tab
+    chrome.tabs.create({
+      url: url.toString(),
+      index: tab.index + 1 // opens next to current tab
+    });
 
-    await chrome.tabs.update(tab.id, { url: url.toString() });
   } catch (e) {
-    // Keep it quiet; extensions shouldn't spam users.
-    console.error("Failed to switch region:", e);
+    console.error("Failed to open new region tab:", e);
   }
 });
