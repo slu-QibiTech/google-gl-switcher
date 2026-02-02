@@ -13,9 +13,7 @@ When you click the extension icon, it opens a new tab with the same search query
    git clone https://github.com/yourname/google-gl-switcher.git
    ```
 
-2. Open Chrome and go to:
-
-  `chrome://extensions`
+2. Open Chrome and go to: `chrome://extensions`
 
 3. Enable Developer mode (top right)
 
@@ -42,9 +40,6 @@ The extension should now appear in your toolbar.
 1. Right-click on extension icon → option
 
 
-2. Enter a region code such as:
-
-- `us` (United States)
-- `jp` (Japan)
+2. Enter a region code such as: `us/jp/tw/cn`
 
 3. Click Save
